@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>timer</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<script type="text/javascript">
+		　var count = 0;
+		　var countup = function(){
+		　　$('#count_txt').text(count++);
+		　　setTimeout(countup, 1000);
+		　} 
+		　countup();
+		</script>
+	</head>
+	<body>
+		<div id="count_txt">0</div>
+	</body>
+</html>
