@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>timer</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	</head>
+	<body>
+	<div id="count_txt">0</div>	
+		<button id="trigger">カウント開始</button>
+		<script type="text/javascript">
+		var count = 0;
+		var actuon = document.getElementById('trigger');
+		var repeatFlag = true;
+		var repeat;
+		
+		function repeatFunc() {
+			count += 1;
+			$('#count_txt').text(count);
+			repeat = setInterval(repeatFunc, 1000);
+		}
+		
+		trigger.onclick = function() {
+			if(repeatFlag) {
+				repeatFunc();
+				actuon.innerHTML = 'カウント停止';
+				repeatFlag = false;
+			} else {
+				clearTimeout(repeat);
+				actuon.innerHTML = 'カウント開始';
+				repeatFlag = true;
+			}
+		};
+		</script>
+	</body>
+</html>
