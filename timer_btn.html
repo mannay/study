@@ -14,15 +14,17 @@
 		var repeatFlag = true;
 		var repeat;
 		
-		function repeatFunc() {
-			count += 1;
-			$('#count_txt').text(count);
+		function countFunc() {
+			function repeatFunc() {
+				count += 1;
+				$('#count_txt').text(count);
+			}
 			repeat = setInterval(repeatFunc, 1000);
 		}
 		
 		trigger.onclick = function() {
 			if(repeatFlag) {
-				repeatFunc();
+				countFunc();
 				actuon.innerHTML = 'カウント停止';
 				repeatFlag = false;
 			} else {
