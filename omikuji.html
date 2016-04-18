@@ -5,12 +5,15 @@
 		<title>おみくじ</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		<script type="text/javascript">
+		function omikuji(){
 			rand = Math.random();
 			msg = "凶";
 			if (rand > 0.2) msg = "小吉";
 			if (rand > 0.4) msg = "中吉";
 			if (rand > 0.6) msg = "大吉";
 			console.log(msg);
+		};
+		omikuji();
 		</script>
 	</head>
 	<body>
