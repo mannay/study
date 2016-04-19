@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>おみくじ3</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<script type="text/javascript">
+		function omikuji(r){
+			rand = Math.random(r);
+			msg = "Lucky";
+			if (rand > 0.5) msg = "Unlucky";
+			return msg;
+		};
+		console.log(omikuji(2));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
