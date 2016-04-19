@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>おみくじ4</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<script type="text/javascript">
+		function omikuji(r){
+		    if (r == 1) {
+				rand = Math.random(r);
+				msg = "凶";
+				if (rand > 0.2) msg = "小吉";
+				if (rand > 0.4) msg = "中吉";
+				if (rand > 0.6) msg = "大吉";
+		    } else {
+				msg = "Lucky";
+				if (rand > 0.5) msg = "Unlucky";
+		    }
+			return msg;
+		};
+		console.log(omikuji(1));
+		console.log(omikuji(2));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
