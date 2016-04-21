@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>timer</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<script type="text/javascript">
+		$(function(){
+		    $('#next').click(function() {
+			    $('#page1').hide();
+			    $('#page2').show();
+		    });
+		});
+		</script>
+		<style type="text/css">
+			#page1,#page2,#page3,#page4 { width: 600px; height: 300px; border: 1px solid #ccc; margin: 0 auto;}
+			#page1 {display: block;}
+			#page2,#page3,#page4 {display: none;}
+			.btn {width: 100px; margin: 20px auto;}
+			pCenter {text-align: center}
+		</style> 
+	</head>
+	<body>
+	<div id="page1">1ページ目</div>
+	<div id="page2">2ページ目</div>
+	<div id="page3">3ページ目</div>
+	<div id="page4">4ページ目</div>
+	<div class="pCenter btn"><button id="next">次へ</button>
+	</body>
+</html>
