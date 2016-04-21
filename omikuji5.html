@@ -6,22 +6,24 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		<script type="text/javascript">
 		function gameMode(modeNumber) {
-			rand = Math.random(modeNumber);
-			//alert(modeNumber);
-		    if (modeNumber == 1) {
-				msg = "凶";
-				if (rand > 0.2) msg = "小吉";
-				if (rand > 0.4) msg = "中吉";
-				if (rand > 0.6) msg = "大吉";				
-		    } else {
-				msg = "Lucky";
-				if (rand > 0.5) msg = "Unlucky";
-		    }
-		    return msg;
-		};
-		
-		var omikuji = gameMode(2);
-		console.log(omikuji);
+			var omikuji = function() {
+				rand = Math.random(modeNumber);
+				//alert(modeNumber);
+			    if (modeNumber == 1) {
+					msg = "凶";
+					if (rand > 0.2) msg = "小吉";
+					if (rand > 0.4) msg = "中吉";
+					if (rand > 0.6) msg = "大吉";				
+			    } else {
+					msg = "Lucky";
+					if (rand > 0.5) msg = "Unlucky";
+			    }
+			    return msg;
+			};
+			return omikuji; //omikujiを返す
+		};		
+		var omikuji = gameMode(1); //gamemodoに2を代入
+		console.log(omikuji());
 		</script>
 	</head>
 	<body>
