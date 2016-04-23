@@ -6,25 +6,42 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		<script type="text/javascript">
 		$(function(){
-		    $('#next').click(function() {
-			    $('#page1').hide();
-			    $('#page2').show();
+		    $('.next').click(function () {
+		        if ($('.next').parents('.page').hasClass('active')) {
+			        $('.page').removeClass('active');
+			        $(this).parent().parent().next().addClass('active');
+			        //var test2 = $('.next').parents('.page').next().addClass('active');
+			        //console.log(test2);
+		        } else {
+			        //$('.next').parents('.page').removeClass('active');
+		        }
 		    });
 		});
 		</script>
 		<style type="text/css">
-			#page1,#page2,#page3,#page4 { width: 600px; height: 300px; border: 1px solid #ccc; margin: 0 auto;}
-			#page1 {display: block;}
-			#page2,#page3,#page4 {display: none;}
-			.btn {width: 100px; margin: 20px auto;}
+			.page { width: 600px; height: 300px; border: 1px solid #ccc; margin: 0 auto; padding-top: 20px; text-align: center; display: none;}
+			.active {display: block !important;}
+			.btn {width: 100px; margin: 20px auto; display: block;}
 			pCenter {text-align: center}
 		</style> 
 	</head>
 	<body>
-	<div id="page1">1ページ目</div>
-	<div id="page2">2ページ目</div>
-	<div id="page3">3ページ目</div>
-	<div id="page4">4ページ目</div>
-	<div class="pCenter btn"><button id="next">次へ</button>
+	<div class="page active">
+		1ページ目
+		<span class="btn"><button class="next">次へ</button></div>
+	</div>
+	<div class="page">
+		2ページ目
+		<span class="btn"><button class="next">次へ</button></div>
+	</div>
+	<div class="page">
+		3ページ目
+		<span class="btn"><button class="next">次へ</button></div>
+	</div>
+	<div class="page">
+		4ページ目
+		<span class="btn"><button class="next">次へ</button></div>
+	</div>
+	
 	</body>
 </html>
