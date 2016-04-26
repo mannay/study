@@ -13,13 +13,17 @@
 			    var insert = $('body');
 			    for(var i = 0; i < arr.length; i++) {
 					var newDiv = $('<div>').addClass('page').text(arr[i]);
-			        insert.append(newDiv);
+			        newDiv.appendTo(insert);
+					if (i == 0){ $('.page').addClass('active');};
 			    }
 			    $('.page').append('<span class="btn"><button class="next">次へ</button></span>');
-			    $('body').append(insert);
-			    $('div:first').addClass('active');
+			    //$('body').append(insert);
+			    
 			});
+		});
 
+
+		window.onload = function() {
 			$(".page").each(function() {
 				var $pageParent = $(this);
 				$pageParent.find('.next').click(function() {
@@ -27,7 +31,7 @@
 					$pageParent.next().addClass('active');
 				})
 			});
-		});
+		};
 
 		</script>
 		<style type="text/css">
