@@ -13,15 +13,13 @@
 			    var insert = $('body');
 			    for(var i = 0; i < arr.length; i++) {
 					var newDiv = $('<div>').addClass('page').text(arr[i]);
+					var newSpan = $('<span>').addClass('btn').html('<button class="next">次へ</button>');
 			        newDiv.appendTo(insert);
+			        newSpan.appendTo(newDiv);
 					if (i == 0){ $('.page').addClass('active');};
 			    }
-			    $('.page').append('<span class="btn"><button class="next">次へ</button></span>');
-			    //$('body').append(insert);
-			    
 			});
 		});
-
 
 		window.onload = function() {
 			$(".page").each(function() {
@@ -32,7 +30,6 @@
 				})
 			});
 		};
-
 		</script>
 		<style type="text/css">
 			.page { width: 600px; height: 300px; border: 1px solid #ccc; margin: 0 auto; padding-top: 20px; text-align: center; display: none;}
@@ -42,6 +39,5 @@
 		</style> 
 	</head>
 	<body>
-	
 	</body>
 </html>
