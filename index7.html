@@ -5,31 +5,21 @@
 		<title>wizard</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		<script type="text/javascript">
-		$(function(){
-			// liに追加する内容
-			var arr = ['1ページ目', '2ページ目', '3ページ目'];
-			 
-			$(function() {
-			    var insert = $('body');
-			    for(var i = 0; i < arr.length; i++) {
-					var newDiv = $('<div>').addClass('page').text(arr[i]);
-					var newSpan = $('<span>').addClass('btn').html('<button class="next">次へ</button>');
-			        newDiv.appendTo(insert);
-			        newSpan.appendTo(newDiv);
-					if (i == 0){ $('.page').addClass('active');};
-			    }
-			});
+		var arr = ['1ページ目', '2ページ目', '3ページ目'];
+		$(function() {
+		    var insert = $('body');
+		    for(var i = 0; i < arr.length; i++) {
+				var newDiv = $('<div>').addClass('page').text(arr[i]);
+				var newSpan = $('<span>').addClass('btn').html('<button class="next">次へ</button>');
+				var $span  = newSpan.appendTo(newDiv);
+				newDiv.appendTo(insert);
+				$('.page').eq(0).addClass('active');
+				$span.find('.next').click(function() {
+					$span.removeClass('active');
+					$span.next().addClass('active');
+				});
+		    }
 		});
-
-		window.onload = function() {
-			$(".page").each(function() {
-				var $pageParent = $(this);
-				$pageParent.find('.next').click(function() {
-					$pageParent.removeClass('active');
-					$pageParent.next().addClass('active');
-				})
-			});
-		};
 		</script>
 		<style type="text/css">
 			.page { width: 600px; height: 300px; border: 1px solid #ccc; margin: 0 auto; padding-top: 20px; text-align: center; display: none;}
