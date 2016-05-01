@@ -15,8 +15,10 @@
 				newDiv.appendTo(insert);
 				$('.page').eq(0).addClass('active');
 				$span.find('.next').click(function() {
-					$span.removeClass('active');
-					$span.next().addClass('active');
+					newDiv.html('中身書き換え');
+					//$('.page').removeClass('active');
+					//$('.page').next().addClass('active');
+					//$(this).next().alert('active');
 				});
 		    }
 		});
