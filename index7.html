@@ -8,8 +8,8 @@
 		var arr = ['1ページ目', '2ページ目', '3ページ目'];
 		$(function() {
 		    var insert = $('body');
-		    $.each(arr, function(index){
-				var $div = $('<div class="page">' + index + 'ページ目</div>').appendTo(insert); 
+		    $.each(arr, function(index, value){
+				var $div = $('<div class="page">' + value + '</div>').appendTo(insert); 
 				var $span = $('<span class="btn"><button class="next">次へ</button></span>').appendTo($div); 
 				
 				if (index == 0) {
