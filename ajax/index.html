@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>wizard</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<script type="text/javascript">
+		$.ajax({
+		  type: 'GET',
+		  url: 'http://localhost:8888/test.json',
+		  dataType: 'json',
+		  success: function(json){
+		    var len = json.length;
+		    for(var i=0; i < len; i++){
+		      $("body").append(json[i].page + '<br>');
+		    }
+		  }
+		});
+		</script>
+		<style type="text/css">
+			.page { width: 600px; height: 300px; border: 1px solid #ccc; margin: 0 auto; padding-top: 20px; text-align: center; display: none;}
+			.active {display: block !important;}
+			.btn {width: 100px; margin: 20px auto; display: block;}
+			.pCenter {text-align: center}
+		</style> 
+	</head>
+	<body>
+	</body>
+</html>
