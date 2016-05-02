@@ -8,20 +8,19 @@
 		var arr = ['1ページ目', '2ページ目', '3ページ目'];
 		$(function() {
 		    var insert = $('body');
-		    for(var i = 0; i < arr.length; i++) {
-				var newDiv = $('<div>').addClass('page').text(arr[i]);
-				var newSpan = $('<span>').addClass('btn').html('<button class="next">次へ</button>');
-				var $div = newDiv.appendTo(insert);
-				var $span  = newSpan.appendTo(newDiv);
+		    $.each(arr, function(index){
+				var $div = $('<div class="page">' + index + 'ページ目</div>').appendTo(insert); 
+				var $span = $('<span class="btn"><button class="next">次へ</button></span>').appendTo($div); 
 				
-				$('.page').eq(0).addClass('active');
-				$span.find('.next').click(function() {
-					$div.html('中身書き換え');
-					//$('.page').removeClass('active');
-					//$('.page').next().addClass('active');
-					//$(this).next().alert('active');
-				});
-		    }
+				if (index == 0) {
+					$div.addClass('active'); 
+				};
+				
+				$span.find('.next').click(function() { 
+					$div.removeClass('active'); 
+					$div.next().addClass('active'); 
+				}); 
+			});
 		});
 		</script>
 		<style type="text/css">
