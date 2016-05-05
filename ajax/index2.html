@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>wizard</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<script type="text/javascript">
+		$.ajax({
+		  type: 'GET',
+		  url: 'http://localhost:8888/test.json',
+		  dataType: 'json',
+		  success: function(page){
+		    var insert = $('body');
+		    $.each(page, function(index, value){
+				var $div = $('<div class="page">' + value + '</div>').appendTo(insert); 
+				var $span = $('<span class="btn"><button class="next">次へ</button></span>').appendTo($div); 
+				if (index == 0) {
+					$div.addClass('active'); 
+				};
+				
+				$span.find('.next').click(function() { 
+					$div.removeClass('active'); 
+					$div.next().addClass('active'); 
+				}); 
+			});
+		  }		  
+		});
+		</script>
+		<style type="text/css">
+			.page { width: 600px; height: 300px; border: 1px solid #ccc; margin: 0 auto; padding-top: 20px; text-align: center; display: none;}
+			.active {display: block !important;}
+			.btn {width: 100px; margin: 20px auto; display: block;}
+			.pCenter {text-align: center}
+		</style> 
+	</head>
+	<body>
+	</body>
+</html>
