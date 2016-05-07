@@ -12,7 +12,7 @@
 		  success: function(page){
 		    var insert = $('body');
 		    $.each(page, function(index, value){
-				var $div = $('<div class="page">' + value + '</div>').appendTo(insert); 
+				var $div = $('<div class="page">' + value.page + '</div>').appendTo(insert); 
 				var $span = $('<span class="btn"><button class="next">次へ</button></span>').appendTo($div); 
 				if (index == 0) {
 					$div.addClass('active'); 
