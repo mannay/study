@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>wizard</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<script type="text/javascript">
+		$.ajax({
+		  type: 'post',
+		  url: 'http://localhost:8888/insert.json',
+		  dataType: 'json',
+		  success: function(json_data){
+		    var insert = $('#adressList');
+		    $.each(json_data, function(index, value){
+			    // サーバが失敗を返した場合
+			    if (!json_data[0]) {
+                alert("サーバーエラーです");
+                return;
+            }
+				var $div = $('<ul><li>' + value.name + '</li><li>' + value.mail + '</li></ul><br>').appendTo(insert); 
+				//var $span = $('<span class="btn"><button class="next">次へ</button></span>').appendTo($div); 
+			});
+			$('#addBtn').click(function() {
+				var newName = $(addName).val();
+				var newMail = $(addMail).val();
+				var newList = '<ul><li>' + newName + '</li><li>' + newMail + '</li></ul><br>'; 
+				if (newName == ''){
+					alert('名前を入れて下さい。')
+				} else if (newMail == '') {
+					alert('メールアドレスを入れて下さい。')
+				} else {
+					$(newList).appendTo('#adressNewList');
+				}
+			}); 
+		  }		  
+		});
+		</script>
+		<style type="text/css">
+			.page { width: 600px; height: 300px; border: 1px solid #ccc; margin: 0 auto; padding-top: 20px; text-align: center; display: none;}
+			.active {display: block !important;}
+			.btn {width: 100px; margin: 20px auto; display: block;}
+			.pCenter {text-align: center}
+			ul {padding-left: 0;}
+			ul li {list-style: none; float: left; padding-left: 1em;}
+			form {margin-top: 20px;}
+		</style> 
+	</head>
+	<body>
+		<div id="adressList"></div>
+		<div id="adressNewList"></div>
+		<form onsubmit="return false">
+			<input type="text" value="" id="addName" placeholder="名前" /><br>
+			<input type="text" value="" id="addMail" placeholder="e-mail" /><br>
+			<button type="submit" id="addBtn">追加</button>
+		</form>
+	</body>
+</html>
